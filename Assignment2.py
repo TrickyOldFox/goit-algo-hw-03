@@ -1,4 +1,16 @@
 import turtle
+import argparse
+
+
+argparse = argparse.ArgumentParser()
+
+argparse.add_argument(
+    "--recursion-level",
+    dest="recursion_level",
+    default=3,
+    type=int,
+    help="Recursion level"
+)
 
 
 def koch_curve(t, order, size):
@@ -30,4 +42,5 @@ def draw_koch_snowflake(order, size=300):
 
 
 if __name__ == '__main__':
-    draw_koch_snowflake(3)
+    args = argparse.parse_args()
+    draw_koch_snowflake(args.recursion_level)
